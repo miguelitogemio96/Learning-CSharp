@@ -10,7 +10,18 @@ POST http://localhost:5159/games
 Content-Type: application/json
 
 {
-    "name": "Super Mario Bros. Wonder",
+    "name": "Super Mario Bros. Wonder 1",
+    "genre": "Platformer",
+    "price": "39.99",
+    "releaseDate": "2023-10-20"
+}
+
+###
+PUT http://localhost:5159/games/4
+Content-Type: application/json
+
+{
+    "name": "Super Mario Bros. Wonder 2",
     "genre": "Platformer",
     "price": "39.99",
     "releaseDate": "2023-10-20"

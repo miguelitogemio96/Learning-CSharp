@@ -1,4 +1,5 @@
 using GameStore.API.DTOs;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 const string GetGameEndpointName = "GetGame";
 
@@ -15,10 +16,13 @@ List<GameDto> games = [
 // GET /games
 app.MapGet("/games", () => games);
 
-
-
 // GET /games/{id}
-app.MapGet("/games/{id}", (int id) => games.Find(game => game.Id == id))
+app.MapGet("/games/{id}", (int id) =>
+{
+    GameDto? foundGame = games.Find(game => game.Id == id);
+
+    return foundGame is null ? Results.NotFound() : Results.Ok(foundGame);
+})
 .WithName(GetGameEndpointName);
 
 // POST /games
@@ -40,6 +44,12 @@ app.MapPost("/games", (CreateGameDto newGame) =>
 app.MapPut("/games/{id}", (int id, UpdateGameDto updatedGame) =>
 {
     int gameIndex = games.FindIndex(game => game.Id == id);
+
+    if (gameIndex == -1)
+    {
+        return Results.NotFound();
+    }
+
     games[gameIndex] = new(
         id,
         updatedGame.Name,

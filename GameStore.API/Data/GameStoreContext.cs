@@ -9,5 +9,5 @@ public class GameStoreContext(DbContextOptions<GameStoreContext> options) : DbCo
     public DbSet<Genre> Genres => Set<Genre>();
     // After installing ef, and EntityFramework.Design
     // Run Command: dotnet ef migrations add InitialCreate --output-dir Data/Migrations
-    // dotnet ef database update
+    // dotnet ef database update, or check the DataExtensions to automate it.
 }

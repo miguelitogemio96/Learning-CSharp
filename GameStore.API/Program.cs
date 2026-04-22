@@ -1,16 +1,15 @@
 using GameStore.API.Data;
 using GameStore.API.Routes;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddValidation();
-
 var connString = "Data Source=GameStore.db";
-builder.Services.AddSqlite<GameStoreContext>(connString);
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddValidation();
+builder.Services.AddSqlite<GameStoreContext>(connString);
 
 var app = builder.Build();
 
+app.MigrateDB();
 app.MapGameEndpoints();
 
 app.Run();

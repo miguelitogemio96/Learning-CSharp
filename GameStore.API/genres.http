@@ -1,0 +1,23 @@
+GET http://localhost:5159/genres
+
+###
+Get http://localhost:5159/genres/6
+
+###
+POST http://localhost:5159/genres
+Content-Type: application/json
+
+{
+    "name": "RPG"
+}
+
+###
+PUT http://localhost:5159/genres/6
+Content-Type: application/json
+
+{
+    "name": "Strategy"
+}
+
+###
+DELETE http://localhost:5159/genres/6

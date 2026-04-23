@@ -1,9 +1,7 @@
 GET http://localhost:5159/games
 
-
 ###
-Get http://localhost:5159/games/5
-
+Get http://localhost:5159/games/1
 
 ###
 POST http://localhost:5159/games
@@ -12,20 +10,20 @@ Content-Type: application/json
 {
     "name": "Super Mario Bros. Wonder 1",
     "genreId": 3,
-    "price": "39.99",
+    "price": 39.99,
     "releaseDate": "2023-10-20"
 }
 
 ###
-PUT http://localhost:5159/games/5
+PUT http://localhost:5159/games/2
 Content-Type: application/json
 
 {
     "name": "Super Mario Bros. Wonder 2",
-    "genre": "Platformer",
+    "genreId": 3,
     "price": "39.99",
     "releaseDate": "2023-10-20"
 }
 
 ###
-DELETE http://localhost:5159/games/1
+DELETE http://localhost:5159/games/4
